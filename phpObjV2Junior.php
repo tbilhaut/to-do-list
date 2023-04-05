@@ -171,7 +171,7 @@ $taches = $task->getAllTasks();
         </div>
       <?php } ?>
     </div>
-    <div class="delete-all">Delete all</div>
+    <div class="delete-all">Delete all V2 langlace</div>
   </div>
 </form>
 <script src="api.js">

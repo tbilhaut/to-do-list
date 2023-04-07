@@ -1,8 +1,12 @@
+<?php
+session_start();
+$_SESSION["trueconnect"] = false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="main.css">
-  <link rel="icon" type="image/ico" sizes="700x700" href="./icone.jpg">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="icon" type="image/ico" sizes="700x700" href="./img/icone.jpg">
   <title>Register</title>
 </head>
     <body>
@@ -26,9 +30,12 @@
                 $requete4 = "INSERT INTO `user`(pseudo, email, mdp) VALUES ('" .$_POST["pseudo"]. "','".$_POST["email"]."','".$_POST["password"]."')";
                 $resultat4 = $GLOBALS["pdo"]->query($requete4);
                 //resultat est du coup un objet de type PDOStatement
+
+                $_SESSION["trueconnect"] = true;
+
                 ?>
                 <script>
-                    window.location.replace("connectetoi.php");
+                    window.location.replace("ToDoList/TODOLIST.php");
                 </script>
                 <?php
 

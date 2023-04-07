@@ -1,10 +1,14 @@
+<?php
+session_start();
+$_SESSION["trueconnect"] = false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" type="image/ico" sizes="700x700" href="./icone.jpg">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" type="image/ico" sizes="700x700" href="./img/icone.jpg">
     <title>Login</title>
 </head>
 
@@ -45,9 +49,10 @@
             $count = $resultat->rowCount();
 
             if ($count == 1) {
+                $_SESSION["trueconnect"] = true;
     ?>
                 <script>
-                    window.location.replace("/../TODOLIST.php");
+                    window.location.replace("ToDoList/TODOLIST.php");
                 </script>
     <?php
             } else {

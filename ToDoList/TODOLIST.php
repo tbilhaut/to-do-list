@@ -1,5 +1,13 @@
 <?php
 session_start();
+if ($_SESSION["trueconnect"] != true) {
+?>
+    <script>
+        window.location.replace("../indexx.php");
+    </script>
+<?php
+}
+
 ?>
 
 
@@ -11,12 +19,10 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width>, initial-scale=1.0">
     <title>ToDoList</title>
-    <?php /*
-    <link rel="stylesheet" href="style_signin.css">
-    <link rel="stylesheet" href="style_todomain.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font_awesome/6.1.1/css/all.min.css">
-    */
-    ?>
+    
+    <link rel="stylesheet" href="./css/style.css">
+    
+    
 </head>
 
 <body>

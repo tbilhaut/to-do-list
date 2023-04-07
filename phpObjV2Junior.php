@@ -119,7 +119,7 @@ class Task
         $query = "INSERT INTO tache (nomtache, `date-heure`, idUser) VALUES (?, ?, ?)";
         $params = [$name, $date, $userId];
         $this->database->executeQuery($query, $params);
-    }
+    
     
     public function deleteTask($id)
     {
@@ -174,7 +174,6 @@ $taches = $task->getAllTasks();
     <div class="delete-all">Delete all V2 langlace</div>
   </div>
 </form>
-<script src="api.js">
 
-
-</script>
+<script src="api.js"></script>
+<script src="addtask.js"></script>

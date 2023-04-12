@@ -1,12 +1,12 @@
 // Récupération du formulaire d'ajout de tâches
-const addTaskForm = document.querySelector("addtask..");
+const addTaskForm = document.querySelector(".input");
 
 // Ajout d'un gestionnaire d'événement sur la soumission du formulaire
 addTaskForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Récupération de la valeur du champ "task"
-    const taskValue = addTaskForm.elements.task.value.trim();
+    const taskValue = addTaskForm.elements.input.value.trim();
 
     // Si le champ est vide, on ne fait rien
     if (taskValue === "") {
@@ -14,10 +14,10 @@ addTaskForm.addEventListener("submit", function (event) {
     }
 
     // Envoi de la nouvelle tâche au serveur via l'API
-    const data = { task: taskValue };
+    const data = { input: taskValue };
     const urlEncodedData = new URLSearchParams(data);
 
-    fetch("api/addTask.php", {
+    fetch("api/addtask.php", {
         method: "POST",
         body: urlEncodedData,
         headers: {

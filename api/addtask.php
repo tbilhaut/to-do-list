@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $database = new Database("192.168.65.36", "to_do_list", "root", "root");
 
         // Récupérer le nom de la tâche envoyée en POST
-        $taskName = $_POST['name'];
+        $taskName = $_POST['tache'];
 
         // Écrire la requête SQL pour insérer la nouvelle tâche
-        $query = "INSERT INTO tache (nom) VALUES (?)";
+        $query = "INSERT INTO tache (nomtache, `date-heure`, idUser) VALUES (?, ?, ?)";
 
         // Exécuter la requête avec le nom de la tâche comme paramètre
         $PDOstatement = $database->executeQuery($query, array($taskName));

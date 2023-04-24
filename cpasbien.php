@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php 
+include("session.php");
+$_SESSION["trueconnect"] = false;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

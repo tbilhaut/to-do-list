@@ -1,5 +1,6 @@
 <?php
-session_start();
+include("session.php");
+include("./Classes/User.php");
 $_SESSION["trueconnect"] = false;
 ?>
 <!DOCTYPE html>
@@ -16,12 +17,6 @@ $_SESSION["trueconnect"] = false;
         
         try {
     
-            $ipserver ="192.168.65.36";
-            $nomBase = "to_do_list";
-            $loginPrivilege ="root";
-            $passPrivilege ="root";
-        
-            $GLOBALS["pdo"] = new PDO('mysql:host=' . $ipserver . ';dbname=' . $nomBase . '', $loginPrivilege, $passPrivilege);
 
 
             if(isset($_POST["register"]) && $_POST["password"] == $_POST["password2"])
@@ -78,7 +73,7 @@ $_SESSION["trueconnect"] = false;
                         </div>
                         <button name="register">Register</button>
                         <div class="register">
-                            <p>Already have a account ? <a href="index.php">Log in</a></p>
+                            <p>Already have a account ? <a href="indexx.php">Log in</a></p>
                         </div>
                     </form>
                 </div>

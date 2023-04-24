@@ -1,6 +1,9 @@
 <?php
-session_start();
+include("session.php");
+include("./Classes/User.php");
+
 $_SESSION["trueconnect"] = false;
+$TheUser = new User(null,null,null);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,49 +18,11 @@ $_SESSION["trueconnect"] = false;
 <body>
 
     <?php
-
+     $_SESSION["erreur"] = 0;
     try {
-
-        /*
-            $requete4 = "UPDATE `user` SET idSecretaire = '".$_POST["laSecretaire"]."' WHERE Medecin.id = ".$_POST["IdMedecin"]."";
-            $resultat4 = $GLOBALS["pdo"]->query($requete4);
-            //resultat est du coup un objet de type PDOStatement
-           
-            $requete = "select * from user";
-            $resultat = $GLOBALS["pdo"]->query($requete);
-            //resultat est du coup un objet de type PDOStatement
-            $tabuser = $resultat->fetchALL();
-            */
-        $erreur = 0;
-        $count = 0;
-
-        $ipserver = "192.168.65.36";
-        $nomBase = "to_do_list";
-        $loginPrivilege = "root";
-        $passPrivilege = "root";
-
-        $GLOBALS["pdo"] = new PDO('mysql:host=' . $ipserver . ';dbname=' . $nomBase . '', $loginPrivilege, $passPrivilege);
-
-
-        if (isset($_POST["login"])) {
-
-            // $requete = "select * from user";
-            $requete = "select * from user where `email` = '" . $_POST["email"] . "' && `mdp` = '" . $_POST["password"] . "'";
-            $resultat = $GLOBALS["pdo"]->query($requete);
-            //resultat est du coup un objet de type PDOStatement
-
-            $count = $resultat->rowCount();
-
-            if ($count == 1) {
-                $_SESSION["trueconnect"] = true;
-    ?>
-                <script>
-                    window.location.replace("ToDoList/TODOLIST.php");
-                </script>
-    <?php
-            } else {
-                $erreur = 1;
-            }
+        if (isset($_POST["login"])) 
+        {
+            $TheUser->seConnecter($_POST["email"],$_POST["password"]);
         }
     } catch (Exception  $error) {
         echo "error est : " . $error->getMessage();
@@ -85,12 +50,13 @@ $_SESSION["trueconnect"] = false;
 
                     </div>
                     <?php
-                    if ($erreur == 1) {
+                    if ($_SESSION["erreur"] == 1) {
                     ?>
                         <div class="error">
                             <label for="">Password or Login error </label>
                         </div>
                     <?php
+                        
                     }
                     ?>
                     <div class="password">

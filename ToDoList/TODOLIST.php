@@ -1,5 +1,7 @@
 <?php
-session_start();
+include("session.php");
+include("./Classes/User.php");
+
 if ($_SESSION["trueconnect"] != true) {
 ?>
     <script>
@@ -33,13 +35,7 @@ if ($_SESSION["trueconnect"] != true) {
 
 
     try { // Connexion à la base de donnée 
-        $ipserver = "192.168.65.36";
-        $nomBase = "to_do_list";
-        $loginPrivilege = "root";
-        $passPrivilege = "root";
-
-        $GLOBALS["pdo"] = new PDO('mysql:host=' . $ipserver . ';dbname=' . $nomBase . '', $loginPrivilege, $passPrivilege);
-
+ 
     ?>
 
         <div class="header">

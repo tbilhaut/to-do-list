@@ -137,14 +137,14 @@ class Task
   
 }
 
-$database = new Database("192.168.65.36", "to_do_list", "root", "root");
+$database = new Database("127.0.0.1", "todolist", "junior", "junior");
 $task = new Task($database);
 
-if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {
+/*if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {
   $tache = $_POST["tache"];
   $userId = 1; // ID de l'utilisateur actuellement connecté (à remplacer par votre propre système d'authentification)
   $task->addTask($tache, $userId);
-}
+}*/
 
 if (isset($_POST["supprimer"])) {
   $id = $_POST["id"];

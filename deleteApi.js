@@ -1,16 +1,28 @@
-// Récupération du bouton "Delete All"
-const deleteAllBtn = document.querySelector(".delete-all");
-
-// Récupération de la liste des tâches
-const tasksList = document.querySelector(".delete");
-
-// Ajout d'un gestionnaire d'événement sur le clic du bouton "Delete All"
-deleteAllBtn.addEventListener("click", function () {
-    // Suppression de toutes les tâches de la liste
-    //
-
-
-
-    
-
-});
+// Function to delete a single task
+async function deleteTask(id) {
+    try {
+      const response = await fetch(`delete.php?id=${id}`, { method: "DELETE" });
+      if (response.ok) {
+        const task = document.getElementById(id);
+        task.remove();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  
+  // Add event listeners to delete buttons
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  deleteButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const taskId = button.dataset.id;
+      deleteTask(taskId);
+    });
+  });
+  
+  // Add event listener to delete all button
+  const deleteAllButton = document.getElementById("delete-all-btn");
+  deleteAllButton.addEventListener("click", deleteAllTasks);
+  
+  

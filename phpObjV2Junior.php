@@ -149,7 +149,12 @@ class Task
   
 }
 
+<<<<<<< HEAD
+
+$database = new Database("127.0.0.1", "todolist", "junior", "junior");
+=======
 $database = new Database("192.168.65.36", "to_do_list", "root", "root");
+>>>>>>> f621cfc84d0522d69f87637ec4d693c0457ac3a4
 $task = new Task($database);
 
 if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {

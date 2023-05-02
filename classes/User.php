@@ -18,10 +18,10 @@ class User
 
 
         //              VERSION A LA PROVIDENCE
-        $ipserver = "192.168.65.36";
-        $nomBase = "to_do_list";
-        $loginPrivilege = "root";
-        $passPrivilege = "root";
+        $host= "127.0.0.1";
+        $dbname = "todolist";
+        $user = "junior";
+        $password= "junior";
 
 
         /*              AVEC WAMP (A CHANGER)
@@ -30,7 +30,7 @@ class User
         $loginPrivilege = "root";
         $passPrivilege = "";
  */
-        $GLOBALS["pdo"] = new PDO('mysql:host=' . $ipserver . ';dbname=' . $nomBase . '', $loginPrivilege, $passPrivilege);
+        $GLOBALS["pdo"] = new PDO('mysql:host=' .  $host . ';dbname=' .  $dbname . '', $user, $password);
     }
 
     public function seConnecter($email, $password)
@@ -49,7 +49,7 @@ class User
             $_SESSION["trueconnect"] = true;
 ?>
             <script>
-                window.location.replace("phpObj.php");
+                window.location.replace("phpObjV2Junior.php");
             </script>
         <?php
         } else {
@@ -72,7 +72,7 @@ class User
 
         ?>
         <script>
-            window.location.replace("phpObj.php");
+            window.location.replace("phpObjV2Junior.php");
         </script>
 <?php
     }

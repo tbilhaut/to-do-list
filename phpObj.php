@@ -1,3 +1,15 @@
+<?php
+include("session.php");
+
+if ($_SESSION["trueconnect"] != true) {
+?>
+    <script>
+        window.location.replace("index.php");
+    </script>
+<?php
+}
+
+?>
 <style>
 body {
   background-color: #111;

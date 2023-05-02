@@ -10,7 +10,6 @@ if ($_SESSION["trueconnect"] != true) {
 }
 
 ?>
-
 <style>
 body {
   background-color: #111;
@@ -187,7 +186,8 @@ $taches = $task->getAllTasks();
     <div class="delete-all">Delete all</div>
   </div>
 </form>
-<script src="theo.js">
+<script src="deleteApi.php">
 
 
 </script>
+

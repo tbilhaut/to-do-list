@@ -1,9 +1,7 @@
 <?php
 include("session.php");
-include("./Classes/User.php");
-
 $_SESSION["trueconnect"] = false;
-$TheUser = new User(null,null,null);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

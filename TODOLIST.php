@@ -1,11 +1,10 @@
 <?php
 include("session.php");
-include("./Classes/User.php");
 
 if ($_SESSION["trueconnect"] != true) {
 ?>
     <script>
-        window.location.replace("../indexx.php");
+        window.location.replace("../index.php");
     </script>
 <?php
 }
@@ -22,7 +21,7 @@ if ($_SESSION["trueconnect"] != true) {
     <meta name="viewport" content="width=device-width>, initial-scale=1.0">
     <title>ToDoList</title>
     
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/to-do-list(la-branche)/css/main.css">
     
     
 </head>

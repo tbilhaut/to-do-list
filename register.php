@@ -1,6 +1,5 @@
 <?php
 include("session.php");
-include("./Classes/User.php");
 $_SESSION["trueconnect"] = false;
 ?>
 <!DOCTYPE html>
@@ -21,19 +20,7 @@ $_SESSION["trueconnect"] = false;
 
             if(isset($_POST["register"]) && $_POST["password"] == $_POST["password2"])
             {
-    
-                $requete4 = "INSERT INTO `user`(pseudo, email, mdp) VALUES ('" .$_POST["pseudo"]. "','".$_POST["email"]."','".$_POST["password"]."')";
-                $resultat4 = $GLOBALS["pdo"]->query($requete4);
-                //resultat est du coup un objet de type PDOStatement
-
-                $_SESSION["trueconnect"] = true;
-
-                ?>
-                <script>
-                    window.location.replace("ToDoList/TODOLIST.php");
-                </script>
-                <?php
-
+                $TheUser->Register($_POST["pseudo"],$_POST["email"],$_POST["password"]);
             }
         
         } catch (Exception  $error) {
@@ -73,7 +60,7 @@ $_SESSION["trueconnect"] = false;
                         </div>
                         <button name="register">Register</button>
                         <div class="register">
-                            <p>Already have a account ? <a href="indexx.php">Log in</a></p>
+                            <p>Already have a account ? <a href="index.php">Log in</a></p>
                         </div>
                     </form>
                 </div>

@@ -14,7 +14,7 @@ if(isset($_POST["idTaches"])){
                 $ParamAsupprimer =  $ParamAsupprimer.'?,';
             }
             $ParamAsupprimer = substr($ParamAsupprimer, 0, strlen($ParamAsupprimer)-1);
-            $database = new Database("192.168.65.36", "to_do_list", "root", "root");
+            $database = new Database("127.0.0.1", "todolist", "root", "root");
             $query = "DELETE FROM `tache` WHERE id in (".$ParamAsupprimer.")";
             $PDOstatement = $database->executeQuery($query, $ids );
             if($PDOstatement->rowCount()>0){

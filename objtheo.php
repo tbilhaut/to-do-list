@@ -102,22 +102,7 @@ body {
 </style>
 <?php
 
-class Database
-{
-    private $pdo;
-    
-    public function __construct($host, $dbname, $user, $password)
-    {
-        $this->pdo = new PDO("mysql:host=".$host.";dbname=".$dbname.";", $user, $password);
-    }
-    
-    public function executeQuery($query, $params = [])
-    {
-        $statement = $this->pdo->prepare($query);
-        $statement->execute($params);
-        return $statement;
-    }
-}
+include("classes/Database.php");
 
 class Task
 {
@@ -149,6 +134,7 @@ class Task
         $statement = $this->database->executeQuery($query);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+  
 }
 
 $database = new Database("192.168.65.36", "to_do_list", "root", "root");
@@ -174,9 +160,9 @@ $taches = $task->getAllTasks();
       <input id="DonneAEnvoyer" type="text" class="input" name="tache" autocomplete="off"/>
       <input type="submit" class="add" value="Add Task" name="envoyer"/>
     </div>
-    <div class="tasks">
+    <div class="tasks" id="lesTaches">
       <?php foreach ($taches as $tache) { ?>
-        <div class="task">
+        <div class="task" id="<?php echo $tache["id"]; ?>">
           <span><?php echo $tache["nomtache"]; ?></span>
           <form action="" method="post">
             <input type="hidden" name="id" value="<?php echo $tache["id"]; ?>"/>
@@ -188,17 +174,7 @@ $taches = $task->getAllTasks();
     <div class="delete-all">Delete all</div>
   </div>
 </form>
-<script>
-    // Récupération du bouton "Delete All"
-const deleteAllBtn = document.querySelector(".delete-all");
+<script src="theo.js">
 
-// Récupération de la liste des tâches
-const tasksList = document.querySelector(".tasks");
-
-// Ajout d'un gestionnaire d'événement sur le clic du bouton "Delete All"
-deleteAllBtn.addEventListener("click", function() {
-  // Suppression de toutes les tâches de la liste
-  tasksList.innerHTML = "";
-});
 
 </script>

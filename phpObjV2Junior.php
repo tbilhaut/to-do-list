@@ -113,7 +113,7 @@ class Task
         $this->database = $database;
     }
     
-    public function addTask($name, $userId)
+   public function addTask($name, $userId)
     {
         $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO tache (nomtache, `date-heure`, idUser) VALUES (?, ?, ?)";
@@ -121,12 +121,12 @@ class Task
         $this->database->executeQuery($query, $params);
     }
     
-    public function deleteTask($id)
-    {
-        $query = "DELETE FROM tache WHERE id = ?";
-        $params = [$id];
-        $this->database->executeQuery($query, $params);
-    }
+        public function deleteTask($id)
+        {
+            $query = "DELETE FROM tache WHERE id = ?";
+            $params = [$id];
+            $this->database->executeQuery($query, $params);
+        }
     
     public function getAllTasks()
     {
@@ -137,7 +137,7 @@ class Task
   
 }
 
-$database = new Database("192.168.65.36", "to_do_list", "root", "root");
+$database = new Database("127.0.0.1", "todolist", "root", "root");
 $task = new Task($database);
 
 if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {
@@ -171,10 +171,8 @@ $taches = $task->getAllTasks();
         </div>
       <?php } ?>
     </div>
-    <div class="delete-all">Delete all</div>
+    <div class="delete-all">Delete all V2 langlace</div>
   </div>
 </form>
-<script src="api.js">
-
-
-</script>
+<script src="addtask.js"></script>
+<script src="api.js"></script>

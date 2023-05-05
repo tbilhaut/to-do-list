@@ -1,3 +1,15 @@
+<?php
+include("session.php");
+
+if ($_SESSION["trueconnect"] != true) {
+?>
+    <script>
+        window.location.replace("index.php");
+    </script>
+<?php
+}
+
+?>
 <style>
 body {
   background-color: #111;
@@ -174,7 +186,7 @@ $taches = $task->getAllTasks();
     <div class="delete-all">Delete all</div>
   </div>
 </form>
-<script src="api.js">
+<script src="addtask.js"></script>
+<script src="api.js"></script>
 
 
-</script>

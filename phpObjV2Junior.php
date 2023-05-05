@@ -1,3 +1,15 @@
+<?php
+include("session.php");
+
+if ($_SESSION["trueconnect"] != true) {
+?>
+    <script>
+        window.location.replace("connexion.php");
+    </script>
+<?php
+}
+
+?>
 <style>
 body {
   background-color: #111;
@@ -137,7 +149,7 @@ class Task
   
 }
 
-$database = new Database("192.168.65.36", "to_do_list", "root", "root");
+$database = new Database("127.0.0.1", "todolist", "junior", "junior");
 $task = new Task($database);
 
 if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {

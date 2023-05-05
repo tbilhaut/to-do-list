@@ -18,10 +18,10 @@ class User
 
 
         //              VERSION A LA PROVIDENCE
-        $host= "127.0.0.1";
+        $host= "192.168.65.36";
         $dbname = "todolist";
-        $user = "junior";
-        $password= "junior";
+        $user = "root";
+        $password= "root";
 
 
         /*              AVEC WAMP (A CHANGER)

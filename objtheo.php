@@ -4,7 +4,7 @@ include("session.php");
 if ($_SESSION["trueconnect"] != true) {
 ?>
     <script>
-        window.location.replace("index.php");
+        window.location.replace("connexion.php");
     </script>
 <?php
 }

@@ -19,7 +19,7 @@ class User
 
         //              VERSION A LA PROVIDENCE
         $host= "192.168.65.36";
-        $dbname = "todolist";
+        $dbname = "to_do_list";
         $user = "root";
         $password= "root";
 

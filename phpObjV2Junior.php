@@ -114,6 +114,7 @@ body {
 </style>
 <?php
 
+
 include("classes/Database.php");
 
 class Task
@@ -125,7 +126,7 @@ class Task
         $this->database = $database;
     }
     
-   public function addTask($name, $userId)
+    public function addTask($name, $userId)
     {
         $date = date("Y-m-d H:i:s");
         $query = "INSERT INTO tache (nomtache, `date-heure`, idUser) VALUES (?, ?, ?)";
@@ -133,12 +134,12 @@ class Task
         $this->database->executeQuery($query, $params);
     }
     
-        public function deleteTask($id)
-        {
-            $query = "DELETE FROM tache WHERE id = ?";
-            $params = [$id];
-            $this->database->executeQuery($query, $params);
-        }
+    public function deleteTask($id)
+    {
+        $query = "DELETE FROM tache WHERE id = ?";
+        $params = [$id];
+        $this->database->executeQuery($query, $params);
+    }
     
     public function getAllTasks()
     {
@@ -154,7 +155,7 @@ $task = new Task($database);
 
 if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {
   $tache = $_POST["tache"];
-  $userId = 1; // ID de l'utilisateur actuellement connecté (à remplacer par votre propre système d'authentification)
+  $userId = 29; // ID de l'utilisateur actuellement connecté (à remplacer par votre propre système d'authentification)
   $task->addTask($tache, $userId);
 }
 
@@ -183,7 +184,7 @@ $taches = $task->getAllTasks();
         </div>
       <?php } ?>
     </div>
-    <div class="delete-all">Delete all V2 langlace</div>
+    <div class="delete-all">Delete all</div>
   </div>
 </form>
 <script src="addtask.js"></script>

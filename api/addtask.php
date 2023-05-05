@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Vérifier si le nom de la tâche a été envoyé
     if (isset($_POST['name'])) {
 
-        $database = new Database("127.0.0.1", "todolist", "junior", "junior");
+        $database = new Database("192.168.65.36", "to_do_list", "root", "root");
 
 
         // Récupérer le nom de la tâche envoyée en POST

@@ -35,29 +35,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-    /*
-include("../classes/Database.php");
-
-if (isset($_POST["task"])) {
-    $task = $_POST["task"];
-
-    try {
-        $database = new Database("localhost", "to_do_list", "root", "");
-        $query = "INSERT INTO `tache` (`tache_texte`) VALUES (?)";
-        $PDOstatement = $database->executeQuery($query, [$task]);
-        if ($PDOstatement->rowCount() > 0) {
-            $retour[0] = "ok";
-        }
-    } catch (\Throwable $th) {
-        $retour[0] = "ko";
-    }
-} else {
-    $retour[0] = "ko";
-}
-
-echo json_encode($retour);*/
-
-?>
-
-
-
+ 

@@ -16,7 +16,7 @@ $_SESSION["trueconnect"] = false;
                 <form action="">
                     <h2>Tant pis</h2>
                     <div class="register">
-                      <p>Fallait s'en souvenir <a href="index.php">Maintenant, direction accueil bg</a></p>
+                      <p>Fallait s'en souvenir <a href="connexion.php">Maintenant, direction accueil bg</a></p>
                   </div>
                 </form>
             </div>

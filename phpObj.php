@@ -1,6 +1,5 @@
 <?php
 include("session.php");
-
 if ($_SESSION["trueconnect"] != true) {
 ?>
     <script>
@@ -8,7 +7,7 @@ if ($_SESSION["trueconnect"] != true) {
     </script>
 <?php
 }
-
+echo $_SESSION["idUser"];
 ?>
 <style>
 body {
@@ -154,8 +153,8 @@ $task = new Task($database);
 
 if (isset($_POST["envoyer"]) && !empty($_POST["tache"])) {
   $tache = $_POST["tache"];
-  $userId = 1; // ID de l'utilisateur actuellement connecté (à remplacer par votre propre système d'authentification)
-  $task->addTask($tache, $userId);
+  // ID de l'utilisateur actuellement connecté (à remplacer par votre propre système d'authentification)
+  $task->addTask($tache, $_SESSION["idUser"]);
 }
 
 if (isset($_POST["supprimer"])) {

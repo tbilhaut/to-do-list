@@ -1,18 +1,16 @@
 <?php
 include("session.php");
 $_SESSION["trueconnect"] = false;
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" type="image/ico" sizes="700x700" href="./img/icone.jpg">
     <title>Login</title>
 </head>
-
 <body>
 
     <?php
@@ -25,7 +23,6 @@ $_SESSION["trueconnect"] = false;
     } catch (Exception  $error) {
         echo "error est : " . $error->getMessage();
     }
-
     ?>
 
     <section>
@@ -45,7 +42,6 @@ $_SESSION["trueconnect"] = false;
                     </div>
                     <div class="forget">
                         <label for=""><input type="checkbox">Remember Me </label>
-
                     </div>
                     <?php
                     if ($_SESSION["erreur"] == 1) {
@@ -54,7 +50,6 @@ $_SESSION["trueconnect"] = false;
                             <label for="">Password or Login error </label>
                         </div>
                     <?php
-                        
                     }
                     ?>
                     <div class="password">
@@ -72,5 +67,4 @@ $_SESSION["trueconnect"] = false;
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

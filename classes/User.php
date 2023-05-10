@@ -1,35 +1,23 @@
 <?php
-
 class User
 {
-
     //propriétés private
     private $id_;
     private $pseudo_;
     private $email_;
 
-    //méthodes public
-
+    //méthodes publiques
     public function __construct($id, $pseudo, $email)
     {
         $this->id_ = $id;
         $this->pseudo_ = $pseudo;
         $this->email_ = $email;
 
-
-        //              VERSION A LA PROVIDENCE
         $host = "192.168.65.36";
         $dbname = "to_do_list";
         $user = "root";
         $password = "root";
 
-
-        /*              AVEC WAMP (A CHANGER)
-        $ipserver = "localhost";
-        $nomBase = "to_do_list";
-        $loginPrivilege = "root";
-        $passPrivilege = "";
- */
         $GLOBALS["pdo"] = new PDO('mysql:host=' .  $host . ';dbname=' .  $dbname . '', $user, $password);
     }
 
@@ -47,7 +35,6 @@ class User
         $requete2 = "select `id` from user where `email` = '" . $email . "' && `mdp` = '" . $hashed_password . "'";
         $resultat2 = $GLOBALS["pdo"]->query($requete2);
         $resultat2 = $resultat2->fetch();
-
 
         $count = $resultat->rowCount();
         // si il n'y a qu'un seul résultat
@@ -75,6 +62,7 @@ class User
         $resultat3 = $resultat3->fetchall();
         // Le résultat est donc un tableau de tableau
 
+        // boucle qui permet de comparer chaque indice du tableau de tableau résultat3
         for ($i = 0; $i < sizeof($resultat3); $i++) {
 
             // si le pseudo est déjà utilisé
@@ -85,25 +73,23 @@ class User
         }
         if ($_SESSION["erreurpseudo"] != 1) {
    
-            // $requete 
+            // $requete qui permet d'inscrire l'utilisateur en insérant les valeurs données
             $requete = "INSERT INTO `user`(pseudo, email, mdp) VALUES ('" . $pseudo . "','" . $email . "','" . $hashed_password . "')";
             $resultat = $GLOBALS["pdo"]->query($requete);
             //resultat est du coup un objet de type PDOStatement
+
             $requete2 = "select `id` from user where `email` = '" . $email . "' && `mdp` = '" . $hashed_password . "'";
             $resultat2 = $GLOBALS["pdo"]->query($requete2);
             $resultat2 = $resultat2->fetch();
+
             $_SESSION["trueconnect"] = true;
             $_SESSION["idUser"] = $resultat2[0];
-
-
         ?>
             <script>
                 window.location.replace("phpObj.php");
             </script>
 <?php
-
         }
     }
 }
-
 ?>

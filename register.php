@@ -2,31 +2,26 @@
 include("session.php");
 $_SESSION["trueconnect"] = false;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" type="image/ico" sizes="700x700" href="./img/icone.jpg">
     <title>Register</title>
 </head>
-
 <body>
-
 
     <?php
     $_SESSION["erreurpseudo"] = 0;
     try {
-
-
-
-        if (isset($_POST["register"]) && $_POST["password"] == $_POST["password2"]) {
+        if (isset($_POST["register"]) && $_POST["password"] == $_POST["password2"])
+        {
             $TheUser->Register($_POST["pseudo"], $_POST["email"], $_POST["password"]);
         }
     } catch (Exception  $error) {
         echo "error est : " . $error->getMessage();
     }
-
     ?>
 
     <section>
@@ -79,5 +74,4 @@ $_SESSION["trueconnect"] = false;
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

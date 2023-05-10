@@ -7,7 +7,6 @@ if ($_SESSION["trueconnect"] != true) {
     </script>
 <?php
 }
-echo $_SESSION["idUser"];
 ?>
 <style>
 body {
